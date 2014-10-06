@@ -1,0 +1,30 @@
+<!DOCTYPE html><!--HTML5 doctype-->
+<html ng-app>
+  <head>
+    <title>My Angular App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="controller.js"> </script>
+    <script>
+    	function changeValue(){
+    		var elem = document.getElementById("TestCtrl");
+    		var valElem = document.getElementById("testInput");
+    		var scope = angular.element(elem).scope();
+    		scope.$apply(function(){
+		        scope.scopeTest = 'Value changed';
+		    })
+    	}
+    </script>
+
+  </head>
+  <body>
+  	<div id="TestCtrl" ng-controller="TestCtrl">
+  		<p> 
+  			<input type="text" id="testInput" value="{{scopeTest}}" />
+
+  			<button onclick="changeValue()"> Change </button>
+  			<button ng-click="currentVal()"> Current Scope Value? </button>
+  		</p>
+  	</div>
+  	
+  </body>
+</html>
